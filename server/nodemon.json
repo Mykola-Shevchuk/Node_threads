@@ -1,0 +1,10 @@
+{
+  "ignore": ["node_modules"],
+  "env": {
+    "NODE_ENV": "development",
+    "PORT": 4000,
+    "MONGO_URL": "mongodb+srv://foxy_user:7ETn43n83m66tKn7Mz448KumvH6axsbveP52XcC84TQASFgCbu@cluster0.ow1ta.mongodb.net/foxy-test?retryWrites=true&w=majority"
+  },
+  "ext": ".js,.json",
+  "watch": "./"
+}
