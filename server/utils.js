@@ -22,7 +22,30 @@ const waitForFreeThreads = (threads, processId) => {
   })
 }
 
+const statuses = {
+  connectingToTheRestaurant: 'Connecting To The Restaurant',
+  restaurantIsPlacingOrder: 'Restaurant is placing your order',
+  restaurantIsReady: 'Restaurant is ready to cook your meal',
+  lookingForCourier: 'Looking for Courier',
+  courierIsFound: 'Courier is found',
+  orderSuccess: 'Order is successfully processed',
+  orderFailed: 'Failed to process order'
+};
+
+function getPercentsByStatus(status) {
+  const max = 100;
+  if (status === statuses.orderFailed) {
+    return max;
+  }
+
+  const statusesCollection = Object.values(statuses);
+  const statusIndex = statusesCollection.indexOf(status);
+  return (max / (Object.keys(statuses).length - 1)) * (statusIndex + 1);
+}
+
 module.exports = {
   getTime,
   waitForFreeThreads,
+  statuses,
+  getPercentsByStatus,
 }
